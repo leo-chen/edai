@@ -1,0 +1,15 @@
+---
+- name: fix web on ansible1
+  hosts: ansible1
+  tasks:
+    - name: install httpd
+      dnf:
+        name: httpd
+    - name: run httpd
+      service:
+        name: httpd
+        state: started
+    - name: create index
+      copy:
+        content: hello world
+        dest: /var/www/html/index.html

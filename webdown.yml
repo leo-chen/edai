@@ -1,0 +1,24 @@
+---
+- name: Listen for URL events
+  hosts: ansible1
+  gather_facts: false
+
+  sources:
+    - name: Match events from webserver
+      ansible.eda.url_check:
+        urls:
+          - http://ansible1
+        delay: 10
+
+  rules:
+    - name: Webserver is up
+      condition: event.url_check.status == "up"
+      action:
+        debug:
+          msg: The website is up and running
+
+    - name: Webserver is down
+      condition: event.url_check.status == "down"
+      action:
+        run_playbook:
+          name: fixweb.yml

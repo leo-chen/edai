@@ -1,0 +1,14 @@
+---
+- name: Monitor SSH login failures
+  hosts: localhost
+  sources:
+    - ansible.eda.journald:
+        filters:
+          _SYSTEMD_UNIT: ssh.service
+  rules:
+    - name: Detect failed SSH logins
+      condition: event.MESSAGE contains "Failed password"
+      action:
+        debug:
+          msg: "SSH login failure detected: {{ event.MESSAGE }}"
+

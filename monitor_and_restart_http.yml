@@ -1,0 +1,14 @@
+---
+- name: Monitor and restart HTTP service
+  hosts: localhost
+  sources:
+    - ansible.eda.journald:
+        filters:
+          _SYSTEMD_UNIT: httpd.service
+  rules:
+    - name: Restart HTTP service if stopped
+      condition: event.MESSAGE contains "Stopped"
+      action:
+        run_playbook:
+          name: restart_httpd.yml
+
