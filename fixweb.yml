@@ -1,6 +1,6 @@
 ---
 - name: fix web on ansible1
-  hosts: ansible1
+  hosts: localhost
   tasks:
     - name: install httpd
       dnf:

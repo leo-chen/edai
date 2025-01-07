@@ -1,13 +1,13 @@
 ---
 - name: Listen for URL events
-  hosts: ansible1
+  hosts: localhost
   gather_facts: false
 
   sources:
     - name: Match events from webserver
       ansible.eda.url_check:
         urls:
-          - http://ansible1
+          - http://localhost
         delay: 10
 
   rules:
