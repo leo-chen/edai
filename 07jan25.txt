@@ -1,0 +1,58 @@
+    1  exit
+    2  sudo dnf install python3-pip ansible-core
+    3  python3 -m pip install ansible-dev-tools --no-input
+    4  history
+    5  mkdir ansible
+    6  cd ansible/
+    7  git clone https://github.com/sandervanvugt/edai
+    8  cd edai/
+    9  ./countdown 1
+   10  ./countdown 13
+   11  ./countdown 1
+   12  ./countdown 12
+   13  sudo dnf -y install java-17-openjdk python3-pip
+   14  sudo sh -c 'echo "export JAVA_HOME=/usr/lib/java-17-openjdk" >> /etc/bashrc'
+   15  export JAVA_HOME=usr/lib/jvm/java-17-openjdk
+   16  export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
+   17  sudo ln -s /usr/lib/jvm/java-17-openjdk-17.0.13.0.11-4.el9.x86_64 /usr/lib/jvm/java-17-openjdk
+   18  pip3 install ansible ansible-rulebook ansible-runner
+   19  sudo vim /etc/bashrc
+   20  history
+   21  ansible-galaxy collection install ansible.eda
+   22  ls ~/.ansible/collections/ansible_collections/ansible/eda/extensions/eda/rulebooks/
+   23  ls
+   24  cp ~/.ansible/collections/ansible_collections/ansible/eda/extensions/eda/rulebooks/ .
+   25  ls
+   26  cp ~/.ansible/collections/ansible_collections/ansible/eda/extensions/eda/rulebooks/* .
+   27  sudo find ~ -name "event_source"
+   28  ls -l /home/student/.ansible/collections/ansible_collections/ansible/eda/extensions/eda/plugins/event_source
+   29  less /home/student/.ansible/collections/ansible_collections/ansible/eda/extensions/eda/plugins/event_source/webhook.py 
+   30  history
+   31  echo localhost > inventory
+   32  vim webhook.yml
+   33  vim say-what.yml 
+   34  ansible-rulebook -i inventory -r webhook.yml -v
+   35  vim journald_events.yml 
+   36  ansible-rulebook -i inventory -r journald_events.yml 
+   37  vim webdown.yml 
+   38  vim fixweb.yml 
+   39  ansible-rulebook -i inventory -r webdown.yml 
+   40  ssh-keygen
+   41  ssh-copy-id localhost
+   42  sudo visudo
+   43  ssh localhost
+   44  ansible-rulebook -i inventory -r webdown.yml 
+   45  ./countdown 3
+   46  exit
+   47  cat alright.sh 
+   48  ./alright.sh 
+   49  cat supercool.sh 
+   50  ./supercool.sh 
+   51  sudo ls -l /root
+   52  sudo rm /var/www/html/index.html 
+   53  sudo ps aux 
+   54  sudo ps aux | grep httpd
+   55  sudo systemctl stop httpd
+   56  exit
+   57  ip a
+   58  history > /tmp/07jan25.txt
